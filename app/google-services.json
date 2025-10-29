@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "589145925509",
+    "project_id": "reproductormusic-c5a55",
+    "storage_bucket": "reproductormusic-c5a55.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589145925509:android:eebda3b9dde4156bf906ec",
+        "android_client_info": {
+          "package_name": "com.example.reproductormusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589145925509-4237oquptag57vgiv353be5gp9btdkug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZoNek1LmQLoXEzdCcmWNz7wd3Xe95h1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589145925509-4237oquptag57vgiv353be5gp9btdkug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

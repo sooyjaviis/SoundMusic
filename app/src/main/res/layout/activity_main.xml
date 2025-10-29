@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"  android:padding="24dp"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Sonus"
+        android:textColor="@color/white"
+        android:textSize="72sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Icono de Onda"
+        android:src="@drawable/ic_sound_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:tint="@color/white" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:boxStrokeWidth="0dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/iv_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gris_texto_input"
+            android:background="@drawable/bg_rounded_dark"
+            android:inputType="textEmailAddress"
+            android:padding="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:boxStrokeWidth="0dp"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/gris_texto_input"
+        app:layout_constraintTop_toBottomOf="@id/til_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gris_texto_input"
+            android:background="@drawable/bg_rounded_dark"
+            android:inputType="textPassword"
+            android:padding="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cb_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recuérdame"
+        android:textColor="@color/gris_texto_input"
+        android:buttonTint="@color/gris_texto_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_password" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/degradado_boton_login"
+        android:text="Iniciar Sesión"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:paddingVertical="16dp"
+        app:cornerRadius="10dp"
+        app:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/cb_remember" />
+    <LinearLayout
+        android:id="@+id/ll_separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btn_login">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/gris_texto_input" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="O"
+            android:textColor="@color/gris_texto_input"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/gris_texto_input" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_google_login"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Iniciar sesión con cuenta Google"
+        android:textColor="@color/white"
+        android:paddingVertical="12dp"
+        app:icon="@drawable/ic_google_logo"
+        app:iconGravity="textStart"
+        app:iconTint="@null"
+        app:rippleColor="@color/gris_texto_input"
+        app:backgroundTint="@color/gris_botones_social"
+        app:layout_constraintTop_toBottomOf="@id/ll_separator" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_apple_login"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Iniciar sesión con cuenta Apple"
+        android:textColor="@color/white"
+        android:paddingVertical="12dp"
+        app:icon="@drawable/ic_apple_logo"
+        app:iconGravity="textStart"
+        app:iconTint="@color/white"
+        app:rippleColor="@color/gris_texto_input"
+        app:backgroundTint="@color/gris_botones_social"
+        app:layout_constraintTop_toBottomOf="@id/btn_google_login" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_phone_login"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Iniciar sesión con número de teléfono"
+        android:textColor="@color/white"
+        android:paddingVertical="12dp"
+        app:icon="@drawable/ic_phone"
+        app:iconGravity="textStart"
+        app:iconTint="@color/white"
+        app:rippleColor="@color/gris_texto_input"
+        app:backgroundTint="@color/gris_botones_social"
+        app:layout_constraintTop_toBottomOf="@id/btn_apple_login" />
+
+    <TextView
+        android:id="@+id/tv_register_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="¿No tienes cuenta Sound? Registrarse"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

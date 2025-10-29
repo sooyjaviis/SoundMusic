@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Reproductormusic" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/degradado_start</item>
+        <item name="colorPrimaryVariant">@color/degradado_end</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/acento_registro</item>
+        <item name="colorSecondaryVariant">@color/acento_registro</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">@color/fondo_oscuro</item>
+
+    </style>
+</resources>
