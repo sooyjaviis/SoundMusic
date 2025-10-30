@@ -1,15 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Reproductormusic" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/degradado_start</item>
-        <item name="colorPrimaryVariant">@color/degradado_end</item>
-        <item name="colorOnPrimary">@color/white</item>
-
-        <item name="colorSecondary">@color/acento_registro</item>
-        <item name="colorSecondaryVariant">@color/acento_registro</item>
-        <item name="colorOnSecondary">@color/black</item>
-
-        <item name="android:statusBarColor">@color/fondo_oscuro</item>
-
+    <!-- 1. Estilo Principal (Noche) -->
+    <style name="Theme.ReproductorMusic" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Colores oscuros/modo noche aquí, si son diferentes -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
+
+    <!-- 2. Estilo de Campo de Entrada (Repetido en ambos) -->
+    <style name="TextInputStyle">
+        <item name="android:background">@drawable/bg_rounded_dark</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/gris_texto_input</item>
+    </style>
+
 </resources>

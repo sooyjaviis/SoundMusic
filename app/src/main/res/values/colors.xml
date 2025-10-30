@@ -16,4 +16,8 @@
     <color name="black">#000000</color>
     <color name="degradado_centro">#0F0F0F</color>
     <color name="degradado_borde">#1E1E2F</color>
+
+    <color name="orange_accent">#FF5722</color>
+    <color name="lyrics_box_background">#805722</color>
+    <color name="darker_gray">#AAAAAA</color>
 </resources>

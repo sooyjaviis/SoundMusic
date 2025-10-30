@@ -6,9 +6,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_degradado"  android:padding="24dp"
+    android:background="@drawable/fondo_degradado"
+    android:padding="24dp"
     tools:context=".LoginActivity">
 
+    <!-- Título de la Aplicación -->
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -22,6 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Icono de Onda -->
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="180dp"
@@ -33,6 +36,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:tint="@color/white" />
+
+    <!-- Campo de Email -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -57,6 +62,7 @@
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Campo de Contraseña -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -83,6 +89,7 @@
             android:padding="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Checkbox Recuérdame -->
     <CheckBox
         android:id="@+id/cb_remember"
         android:layout_width="wrap_content"
@@ -93,6 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_password" />
 
+    <!-- Botón Iniciar Sesión -->
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
@@ -106,6 +114,8 @@
         app:cornerRadius="10dp"
         app:backgroundTint="@null"
         app:layout_constraintTop_toBottomOf="@id/cb_remember" />
+
+    <!-- Separador "O" -->
     <LinearLayout
         android:id="@+id/ll_separator"
         android:layout_width="match_parent"
@@ -136,6 +146,7 @@
             android:background="@color/gris_texto_input" />
     </LinearLayout>
 
+    <!-- Botones de Redes Sociales -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_google_login"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
@@ -151,6 +162,7 @@
         app:rippleColor="@color/gris_texto_input"
         app:backgroundTint="@color/gris_botones_social"
         app:layout_constraintTop_toBottomOf="@id/ll_separator" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_apple_login"
@@ -184,6 +196,7 @@
         app:backgroundTint="@color/gris_botones_social"
         app:layout_constraintTop_toBottomOf="@id/btn_apple_login" />
 
+    <!-- Enlace de Registro -->
     <TextView
         android:id="@+id/tv_register_link"
         android:layout_width="wrap_content"

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:padding="24dp"
+    tools:context=".PlayerActivity">
+
+    <ImageView
+        android:id="@+id/iv_back_arrow_player"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Atrás"
+        app:tint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/iv_album_art"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/placeholder_album_art"
+        android:scaleType="centerCrop"
+        android:contentDescription="Carátula del álbum"
+        app:layout_constraintTop_toBottomOf="@id/iv_back_arrow_player"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_rounded_corners"/>
+
+    <TextView
+        android:id="@+id/tv_song_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lofi Beats"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_album_art" />
+
+    <TextView
+        android:id="@+id/tv_artist_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="M83"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_song_title" />
+
+    <SeekBar
+        android:id="@+id/seekbar_progress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:progressTint="@color/orange_accent"
+        android:thumbTint="@color/orange_accent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_artist_name" />
+
+    <TextView
+        android:id="@+id/tv_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:05"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/seekbar_progress"
+        app:layout_constraintTop_toBottomOf="@id/seekbar_progress"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4:06"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/seekbar_progress"
+        app:layout_constraintTop_toBottomOf="@id/seekbar_progress"
+        android:layout_marginEnd="4dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_current_time">
+
+        <ImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@android:color/white"
+            android:contentDescription="Añadir a favoritos"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_previous"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_skip_previous"
+            app:tint="@android:color/white"
+            android:contentDescription="Canción anterior"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_play_pause"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_play"
+            app:tint="@android:color/white"
+            android:contentDescription="Reproducir / Pausar"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_next"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_skip_next"
+            app:tint="@android:color/white"
+            android:contentDescription="Siguiente canción"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_menu"
+            app:tint="@android:color/white"
+            android:contentDescription="Más opciones" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_lyrics_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Letra:"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_controls"/>
+
+    <TextView
+        android:id="@+id/tv_lyrics_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:background="@drawable/bg_lyrics_box"
+        android:text="Sé que lo imposible se puede lograr, que la tristeza algún día se irá. Y así será, la vida cambia y cambiará, sentirás que el alma vuela por la luz de la verdad. Aprenderás que la lluvia al caer solo trae la calma y la paz que un día busqué. Y así será..."
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:maxLines="6"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_lyrics_label"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

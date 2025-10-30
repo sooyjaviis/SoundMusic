@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">reproductorMusic</string>
+    <string name="app_name">ReproductorMusic</string>
+
+    <string name="ya_tienes_cuenta_iniciar_sesi_n">¿Ya tienes cuenta Sound? Iniciar Sesión</string>
+
 </resources>
