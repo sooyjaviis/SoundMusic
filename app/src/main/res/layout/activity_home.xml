@@ -8,6 +8,7 @@
     android:padding="16dp"
     tools:context=".HomeActivity">
 
+    <!-- CABECERA -->
     <TextView
         android:id="@+id/tv_greeting"
         android:layout_width="wrap_content"
@@ -43,6 +44,7 @@
         android:background="@drawable/bg_circle_gris"
         android:padding="8dp" />
 
+    <!-- BARRA DE BÚSQUEDA -->
     <EditText
         android:id="@+id/et_search"
         android:layout_width="match_parent"
@@ -55,9 +57,12 @@
         android:padding="12dp"
         android:textColor="@android:color/white"
         android:textColorHint="@color/gris_texto_input"
-        app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+        android:inputType="text"/>
 
+    <!-- CONTENIDO PRINCIPAL (INICIO) -->
     <ScrollView
+        android:id="@+id/sv_home_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
@@ -125,6 +130,20 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- RESULTADOS DE BÚSQUEDA INSTANTÁNEA -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_instant_results"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/et_search"
+        app:layout_constraintBottom_toTopOf="@id/player_bar"
+        tools:visibility="visible"
+        tools:listitem="@layout/item_track_result"/>
+
+    <!-- BARRA DEL REPRODUCTOR (player_bar) - CORREGIDA -->
     <LinearLayout
         android:id="@+id/player_bar"
         android:layout_width="match_parent"
@@ -135,12 +154,18 @@
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <View
+        <!-- 1. IMAGEN DE CARÁTULA (CORREGIDO: Ahora es ImageView con ID) -->
+        <ImageView
+            android:id="@+id/iv_player_cover"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:src="@drawable/ic_music_placeholder"
+            android:contentDescription="Cover de la canción actual"
             android:background="#333333"
-            android:contentDescription="Cover de Lofi Beats Placeholder" />
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="10dp" />
 
+        <!-- 2. TÍTULO Y ARTISTA -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -148,33 +173,52 @@
             android:orientation="vertical"
             android:layout_marginStart="10dp">
             <TextView
+                android:id="@+id/tv_player_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lofi Beats"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
             <TextView
+                android:id="@+id/tv_player_artist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="00:03"
+                android:text="Artista"
                 android:textColor="@color/gris_texto_input"
                 android:textSize="12sp" />
         </LinearLayout>
 
+        <!-- 3. CONTROLES DE REPRODUCCIÓN -->
+
+        <!-- Botón ANTERIOR (Opcional, pero útil para controles) -->
         <ImageView
+            android:id="@+id/iv_player_prev"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_heart"
-            android:contentDescription="Me gusta"
+            android:src="@drawable/ic_skip_previous"
+            android:contentDescription="Canción anterior"
             app:tint="@android:color/white"
             android:layout_marginEnd="15dp" />
 
+        <!-- Botón PLAY/PAUSE (Necesario para la lógica de reproducción) -->
         <ImageView
+            android:id="@+id/iv_player_play_pause"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_refresh"
-            android:contentDescription="Repetir"
+            android:src="@drawable/ic_play_arrow"
+            android:contentDescription="Reproducir / Pausar"
+            app:tint="@android:color/white"
+            android:layout_marginEnd="15dp" />
+
+        <!-- Botón SIGUIENTE (Opcional, pero útil para controles) -->
+        <ImageView
+            android:id="@+id/iv_player_next"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_skip_next"
+            android:contentDescription="Canción siguiente"
             app:tint="@android:color/white" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

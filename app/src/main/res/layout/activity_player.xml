@@ -125,7 +125,7 @@
             android:id="@+id/iv_play_pause"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/ic_play"
+            android:src="@drawable/ic_play_arrow"
             app:tint="@android:color/white"
             android:contentDescription="Reproducir / Pausar"
             android:layout_marginEnd="16dp"/>

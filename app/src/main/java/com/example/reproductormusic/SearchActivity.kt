@@ -1,5 +1,6 @@
 package com.example.reproductormusic
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -31,7 +32,7 @@ class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "1. onCreate() iniciado.") // <-- AÑADIR ESTO
+        Log.d(TAG, "1. onCreate() iniciado.")
 
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -40,12 +41,28 @@ class SearchActivity : AppCompatActivity() {
 
         setupRecyclerView()
         setupSearchInput()
-        Log.d(TAG, "5. onCreate() finalizado.") // <-- AÑADIR ESTO
+
+        // Cargar los top charts al inicio (comportamiento de placeholder)
+        searchTracks("")
+
+        Log.d(TAG, "5. onCreate() finalizado.")
     }
 
     private fun setupRecyclerView() {
-        Log.d(TAG, "3. Configurando TextWatcher...") // <-- AÑADIR ESTO
-        trackAdapter = TrackAdapter(emptyList())
+        Log.d(TAG, "3. Configurando RecyclerView y Adapter.")
+
+        // CORRECCIÓN CLAVE: Pasar el onTrackClickListener.
+        // Aquí enviamos la pista seleccionada a HomeActivity para su reproducción.
+        trackAdapter = TrackAdapter(emptyList()) { track ->
+            // Reemplaza esta lógica con la acción deseada, como iniciar HomeActivity o un Reproductor
+            Toast.makeText(this, "Reproduciendo (simulado): ${track.name}", Toast.LENGTH_SHORT).show()
+
+            // Ejemplo de cómo podrías enviar la pista seleccionada a HomeActivity:
+            // val intent = Intent(this, HomeActivity::class.java)
+            // intent.putExtra("track_url", track.audioUrl)
+            // startActivity(intent)
+        }
+
         binding.rvSearchResults.apply {
             layoutManager = LinearLayoutManager(this@SearchActivity)
             adapter = trackAdapter
@@ -60,6 +77,7 @@ class SearchActivity : AppCompatActivity() {
 
                 val query = s.toString().trim()
 
+                // Si está vacío, la lógica de searchTracks se encargará de cargar los charts
                 if (query.isNotEmpty()) {
                     // Inicia una nueva corrutina con un delay (debounce)
                     searchJob = lifecycleScope.launch {
@@ -67,18 +85,18 @@ class SearchActivity : AppCompatActivity() {
                         searchTracks(query)
                     }
                 } else {
-                    // Si el campo está vacío, limpia la lista
-                    trackAdapter.updateTracks(emptyList())
+                    // Si el campo se vacía, carga inmediatamente los charts de nuevo
+                    searchTracks("")
                 }
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
-        Log.d(TAG, "4. TextWatcher configurado.") // <-- AÑADIR ESTO
+        Log.d(TAG, "4. TextWatcher configurado.")
     }
 
     private fun searchTracks(query: String) {
-        Log.d(TAG, "Iniciando búsqueda para la query: $query")
+        Log.d(TAG, "Iniciando búsqueda para la query: '$query'")
         if (JAMENDO_CLIENT_ID == "d5d636a2") {
             Log.w(TAG, "Advertencia: Usando clave de API de ejemplo. Reemplaza con tu clave.")
         }
@@ -89,17 +107,18 @@ class SearchActivity : AppCompatActivity() {
             try {
                 // Realiza la llamada a la API
                 val response = if (query.isEmpty()) {
-                    // Si es vacío, carga top charts
+                    // Si es vacío, carga top charts (fallback o placeholder)
                     ApiConfig.jamendoApiService.getTopCharts(JAMENDO_CLIENT_ID)
                 } else {
                     // Si tiene texto, realiza la búsqueda
                     ApiConfig.jamendoApiService.searchTracks(JAMENDO_CLIENT_ID, query = query)
                 }
 
-                // 🚨 LOG CRÍTICO PARA DIAGNÓSTICO
+                // LOG CRÍTICO PARA DIAGNÓSTICO
                 Log.d(TAG, "Respuesta API - Código: ${response.code()}, Éxito: ${response.isSuccessful}")
 
                 if (response.isSuccessful) {
+                    // Usar la lista de Track (Asegúrate de que Track.kt esté definido)
                     val tracks = response.body()?.results ?: emptyList<Track>()
                     trackAdapter.updateTracks(tracks)
                     Log.d(TAG, "Canciones encontradas: ${tracks.size}")

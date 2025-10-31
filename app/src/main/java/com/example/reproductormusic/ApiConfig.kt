@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit
 private const val BASE_URL = "https://api.jamendo.com/v3.0/"
 
 // 🚨 CLAVE DE API 🚨: DEBES REEMPLAZAR ESTO
-const val JAMENDO_CLIENT_ID = "d5d636a2" // Tu clave real debe ir aquí
 
 object ApiConfig {
 

@@ -86,7 +86,7 @@ class PlayerActivity : AppCompatActivity() {
 
             newPlayer.setOnCompletionListener {
                 isPlaying = false
-                binding.ivPlayPause.setImageResource(R.drawable.ic_play)
+                binding.ivPlayPause.setImageResource(R.drawable.ic_play_arrow)
                 stopUpdatingSeekBar()
                 binding.seekbarProgress.progress = 0
                 binding.tvCurrentTime.text = formatTime(0)
@@ -105,7 +105,7 @@ class PlayerActivity : AppCompatActivity() {
         mediaPlayer?.let {
             if (isPlaying) {
                 it.pause()
-                binding.ivPlayPause.setImageResource(R.drawable.ic_play)
+                binding.ivPlayPause.setImageResource(R.drawable.ic_play_arrow)
                 stopUpdatingSeekBar()
             } else {
                 it.start()
